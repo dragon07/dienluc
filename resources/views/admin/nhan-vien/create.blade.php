@@ -6,44 +6,26 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">Name</label>
-                    <input type="text" class="form-control" id="title" name="name" placeholder="Category name" required>
+                    <label for="ho-ten">Họ tên</label>
+                    <input type="text" class="form-control" id="ho-ten" name="ho_ten" placeholder="Nhập họ tên" required>
                     @error('name')
                     <small class="help-block text-danger"></small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Category slug">
+                    <label for="slug">Mã số thuế</label>
+                    <input type="text" class="form-control" id="mst" name="mst" placeholder="Nhập mã số thuế" required>
                 </div>
                 <div class="form-group">
-                    <label for="priority">Priority</label>
-                    <input type="number" class="form-control" id="priority" name="priority"
-                           placeholder="Priority number" min="0" required>
+                    <label for="hrms">Số hiệu HRMS</label>
+                    <input type="text" class="form-control" id="hrms" name="so_hieu_hrms" placeholder="Nhập số hiệu HRMS"  required>
                     @error('priority')
                     <small class="help-block text-danger"></small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" id="public" value="1" checked>
-                        <label class="form-check-label" for="public">
-                            Public
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" id="private" value="0">
-                        <label class="form-check-label" for="private">
-                            Private
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="desc">Description</label>
-                    <textarea class="form-control" name="description" id="desc" rows="8"
-                              placeholder="Enter description"></textarea>
+                    <label for="erp">Mã ERP</label>
+                    <input type="text" class="form-control" id="erp" name="ma_erp" placeholder="Nhập mã ERP" required>
                 </div>
             </div>
         </div>

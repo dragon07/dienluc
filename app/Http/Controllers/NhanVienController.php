@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NhanVien;
 use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
@@ -13,10 +14,9 @@ class NhanVienController extends Controller
      */
     public function index()
     {
-        //$key = request()->key;
-        //$data = NhanVien::orderBy("id", 'desc')->search()->paginate(2);
-        //return view('admin.nhan-vien.index',compact(['data', 'key']));
-        return view('admin.nhan-vien.index');
+        $key = request()->key;
+        $data = NhanVien::orderBy("id", 'desc')->search()->paginate(5);
+        return view('admin.nhan-vien.index',compact(['data', 'key']));
     }
 
     /**
@@ -39,7 +39,13 @@ class NhanVienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (NhanVien::create($request->all())) {
+            return redirect()->route('nhan-vien.index')
+                ->with('success', 'Thêm mới nhân viên ' . $request->ho_ten . ' thành công!');
+        } else {
+            return redirect()->route('nhan-vien.index')
+                ->with('error', 'Thêm mới nhân viên ' . $request->ho_ten . ' không thành công!');
+        }
     }
 
     /**
