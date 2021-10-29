@@ -22,13 +22,8 @@ Route::get('/', function () {
  * */
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/file', [AdminController::class, 'file'])->name('admin.file');
     Route::resources([
-        'account' => AccountController::class,
-        'category' => CategoryController::class,
-        'banner' => BannerController::class,
-        'product' => ProductController::class,
-        'blog' => BlogController::class,
-        'order' => OrderController::class
+        'nhanvien' => AccountController::class,
+        'nguoiphuthuoc' => CategoryController::class
     ]);
 });
