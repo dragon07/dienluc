@@ -19,11 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 /*
  * Admin
  * */
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
     Route::resources([
         'nhan-vien' => NhanVienController::class,
         'phu-thuoc' => NguoiPhuThuocController::class
