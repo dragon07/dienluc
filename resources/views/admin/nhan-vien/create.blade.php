@@ -1,7 +1,7 @@
 @extends('layouts.admin')
-@section('title', 'Create category')
+@section('title', 'Thêm mới nhân viên')
 @section('content')
-    <form action="{{route('category.store')}}" method="POST">
+    <form action="{{route('nhan-vien.store')}}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -9,7 +9,7 @@
                     <label for="title">Name</label>
                     <input type="text" class="form-control" id="title" name="name" placeholder="Category name" required>
                     @error('name')
-                    <small class="help-block text-danger">{{$message}}</small>
+                    <small class="help-block text-danger"></small>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -21,7 +21,7 @@
                     <input type="number" class="form-control" id="priority" name="priority"
                            placeholder="Priority number" min="0" required>
                     @error('priority')
-                    <small class="help-block text-danger">{{$message}}</small>
+                    <small class="help-block text-danger"></small>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -50,7 +50,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success">
                 <i class="fal fa-plus-circle"></i>
-                Add new
+                Thêm mới
             </button>
         </div>
     </form>

@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NhanVienController;
+use App\Http\Controllers\NguoiPhuThuocController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +25,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::resources([
-        'nhanvien' => AccountController::class,
-        'nguoiphuthuoc' => CategoryController::class
+        'nhan-vien' => NhanVienController::class,
+        'phu-thuoc' => NguoiPhuThuocController::class
     ]);
 });

@@ -8,52 +8,32 @@ return [
     ],
     [
         'label' => 'Phụ thuộc',
-        'route' => 'product.index',
+        'route' => 'phu-thuoc.index',
         'icon' => 'fal fa-users',
         'items' => [
             [
-                'label' => 'All Product',
-                'route' => 'product.index',
+                'label' => 'Tất cả',
+                'route' => 'phu-thuoc.index',
             ],
             [
-                'label' => 'Add Product',
-                'route' => 'product.create',
+                'label' => 'Thêm mới',
+                'route' => 'phu-thuoc.create',
             ]
         ]
     ],
     [
-        'label' => 'Nộp thuế',
-        'route' => 'category.index',
+        'label' => 'Nhân viên',
+        'route' => 'nhan-vien.index',
         'icon' => 'fal fa-tags',
         'items' => [
             [
-                'label' => 'All Category',
-                'route' => 'category.index',
+                'label' => 'Tất cả',
+                'route' => 'nhan-vien.index',
             ],
             [
-                'label' => 'Add Category',
-                'route' => 'category.create',
+                'label' => 'Thêm mới',
+                'route' => 'nhan-vien.create',
             ]
         ]
     ],
-    [
-        'label' => 'Quản trị',
-        'route' => 'order.index',
-        'icon' => 'fal fa-columns',
-        'items' => [
-            [
-                'label' => 'All Order',
-                'route' => 'order.index',
-            ],
-            [
-                'label' => 'Add Order',
-                'route' => 'order.create',
-            ]
-        ]
-    ],
-    [
-        'label' => 'Đăng xuất',
-        'route' => 'blog.index',
-        'icon' => 'fal fa-sign-out-alt',
-    ]
 ];
