@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\NguoiPhuThuocController;
 use Illuminate\Support\Facades\Route;
@@ -17,15 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-
+Route::get('login',[AuthController::class,'index'])->name('login');
+Route::get('logout',[AuthController::class,'logout'])->name('auth.logout');
+Route::post('login', [AuthController::class,'login'])->name('auth.login');
 /*
  * Admin
  * */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
+    // Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
     Route::resources([
         'nhan-vien' => NhanVienController::class,
         'phu-thuoc' => NguoiPhuThuocController::class
