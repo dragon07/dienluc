@@ -26,9 +26,8 @@ Route::post('login', [AuthController::class,'login'])->name('auth.login');
 /*
  * Admin
  * */
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:view']], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    // Route::get('/login', [AdminController::class, 'login'])->name('admin.login');
     Route::resources([
         'nhan-vien' => NhanVienController::class,
         'phu-thuoc' => NguoiPhuThuocController::class
