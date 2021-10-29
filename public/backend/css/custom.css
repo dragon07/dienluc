@@ -1,0 +1,8 @@
+@media(min-width: 992px){
+    .modal-dialog.modal-lg{
+        max-width: 1200px;
+    }
+}
+#img-thumb img{
+    border: 1px solid #eee
+}
