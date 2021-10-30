@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NhanVienRequest;
 use App\Models\NhanVien;
-use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $key = request()->key;
@@ -19,26 +15,14 @@ class NhanVienController extends Controller
         return view('admin.nhan-vien.index',compact(['data', 'key']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //$nhanVien = NhanVien::orderBy('id', 'desc')->select('id', 'name')->get();
-       // return (view('admin.nhan-vien.create', compact('nhanVien')));
        return (view('admin.nhan-vien.create'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(NhanVienRequest $request)
     {
+        
         if (NhanVien::create($request->all())) {
             return redirect()->route('nhan-vien.index')
                 ->with('success', 'Thêm mới nhân viên ' . $request->ho_ten . ' thành công!');
@@ -48,48 +32,35 @@ class NhanVienController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(NhanVien $nhanVien)
     {
-        //
+        return (view('admin.nhan-vien.edit', compact('nhanVien')));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(NhanVienRequest $request, NhanVien $nhanVien)
     {
-        //
+        if ($nhanVien->update($request->only('ho_ten', 'mst', 'so_hieu_hrms', 'ma_erp', 'status'))) {
+            return redirect()->route('nhan-vien.index')
+                ->with('success', ''.$request->ho_ten.' vừa được cập nhật thông tin!');
+        }
+        return false;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(NhanVien $nhanVien)
     {
-        //
+        $hoTen = $nhanVien->getAttributes()['ho_ten'];
+        if ($nhanVien->phuThuoc()->count() > 0) {
+            return redirect()->route('nhan-vien.index')
+                ->with('error', 'Không thể xóa nhân viên ' . $hoTen);
+        } else {
+            $nhanVien->delete();
+            return redirect()->route('nhan-vien.index')
+                ->with('success', 'Đã xóa nhân viên ' . $hoTen);
+        }
     }
 }

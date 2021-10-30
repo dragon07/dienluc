@@ -17,7 +17,7 @@ class CreateNhanViensTable extends Migration
             $table->id();
             $table->string('ho_ten');
             $table->string('mst')->unique();
-            $table->string('so_hieu_hrms');
+            $table->string('so_hieu_hrms')->unique();
             $table->string('ma_erp');
             $table->boolean('status')->default(1);
             $table->timestamps();

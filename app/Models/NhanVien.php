@@ -16,6 +16,12 @@ class NhanVien extends Model
         'status'
     ];
 
+    /* Join 1-n */
+    public function phuThuoc()
+    {
+        return $this->hasMany(NguoiPhuThuoc::class, 'id_nhan_vien', 'id');
+    }
+
     /* Add scope search */
     public function scopeSearch($query)
     {

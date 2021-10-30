@@ -19,6 +19,7 @@
                 <th scope="col">Họ tên</th>
                 <th scope="col">MST</th>
                 <th scope="col">Số hiệu HRMS</th>
+                <th scope="col">Số người phụ thuộc</th>
                 <th scope="col">Ngày tạo</th>
                 <th scope="col" class="text-right">Action</th>
             </tr>
@@ -30,6 +31,7 @@
                     <td>{{$nhanVien->ho_ten}}</td>
                     <td>{{$nhanVien->mst}}</td>
                     <td>{{$nhanVien->so_hieu_hrms}}</td>
+                    <td>{{count($nhanVien->phuThuoc)}}</td>
                     <td>{{$nhanVien->created_at->format('d-m-Y H:i:s')}}</td>
                     <td class="text-right">
                         <a type="button" href="{{route('nhan-vien.edit', $nhanVien->id)}}" class="btn btn-sm btn-primary">
@@ -61,7 +63,7 @@
             let href = $(this).attr('href');
             let form = $('form#form-delete');
             form.attr('action', href);
-            if (confirm('Are you sure you want to delete')) {
+            if (confirm('Bạn có chắn muốn xóa')) {
                 form.submit();
             }
         })

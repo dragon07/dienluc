@@ -6,15 +6,15 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">Name</label>
-                    <input type="text" class="form-control" id="title" name="name" placeholder="Category name" required>
+                    <label for="ho-ten">Họ tên</label>
+                    <input type="text" class="form-control" id="ho-ten" name="ho_ten" placeholder="Category name" required>
                     @error('name')
                     <small class="help-block text-danger"></small>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Category slug">
+                    <label for="slug">Ngày sinh</label>
+                    <input type="text" class="form-control" id="slug" name="ngay_sinh" placeholder="Category slug">
                 </div>
                 <div class="form-group">
                     <label for="priority">Priority</label>
