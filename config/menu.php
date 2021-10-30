@@ -36,4 +36,19 @@ return [
             ]
         ]
     ],
+    [
+        'label' => 'Quản trị ',
+        'route' => 'phu-thuoc.index',
+        'icon' => 'fas fa-user-shield',
+        'items' => [
+            [
+                'label' => 'Tất cả',
+                'route' => 'phu-thuoc.index',
+            ],
+            [
+                'label' => 'Thêm mới',
+                'route' => 'phu-thuoc.create',
+            ]
+        ]
+    ],
 ];

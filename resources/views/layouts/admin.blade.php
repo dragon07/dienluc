@@ -15,6 +15,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{url('backend')}}/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="{{url('backend')}}/css/custom.css">
+
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @livewireStyles
     @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -260,6 +263,7 @@
 <script src="{{url('backend')}}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('backend')}}/dist/js/demo.js"></script>
+@livewireScripts
 @yield('js')
 
 </body>

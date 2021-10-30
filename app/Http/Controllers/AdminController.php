@@ -17,4 +17,9 @@ class AdminController extends Controller
     // {
     //     return view('layouts.login');
     // }
+    public function roleAndPermission()
+    {
+        # code...
+        return view('admin.quan-tri.index');
+    }
 }
