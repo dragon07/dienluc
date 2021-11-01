@@ -42,8 +42,12 @@ return [
         'icon' => 'fas fa-user-shield',
         'items' => [
             [
-                'label' => 'Tất cả',
-                'route' => 'phu-thuoc.index',
+                'label' => 'Danh sách quản trị viên',
+                'route' => 'admins',
+            ],
+            [
+                'label' => 'Vai trò và quyền',
+                'route' => 'permission',
             ],
             [
                 'label' => 'Thêm mới',

@@ -30,13 +30,11 @@ class RoleAndPermission extends Component
 
             $role = Role::findByName($this->role);
             if($role->permissions->where('id',$permission)->count() >0){
-                // dd($role->permissions->where('id',$permission)->count());$role->revokePermissionTo($permission);
                 $role->revokePermissionTo($permission);
 
             }else{
                 $role->givePermissionTo($permission);
             }
-            // $tooglePermission = Permission::findById($permission);
         }
     }
 }

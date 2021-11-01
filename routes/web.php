@@ -28,7 +28,11 @@ Route::post('login', [AuthController::class,'login'])->name('auth.login');
  * */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:view']], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('quan-tri', [AdminController::class,'roleAndPermission']);
+    Route::get('quan-tri', [AdminController::class,'roleAndPermission'])->name('permission');
+    Route::get('thay-doi-thong-tin/{id}', [AdminController::class,'edit']);
+    Route::post('thay-doi-thong-tin/{id}', [AdminController::class,'update']);
+
+    Route::get('danh-sach-quan-tri', [AdminController::class,'listAdmin'])->name('admins');
     Route::resources([
         'nhan-vien' => NhanVienController::class,
         'phu-thuoc' => NguoiPhuThuocController::class
